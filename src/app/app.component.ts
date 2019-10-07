@@ -8,4 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent {
   messagingForm: FormGroup;
+
+  constructor() {
+    this.messagingForm = new FormGroup({})
+  }
 }
