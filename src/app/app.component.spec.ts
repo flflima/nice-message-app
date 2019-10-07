@@ -30,6 +30,12 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('#name').textContent).toEqual('Informe o seu nome: ')
   });
 
+  it('should create the app with an empty name field', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.name).toEqual('');
+  });
+
   // it(`should have as title 'nice-messages-app'`, () => {
   //   const fixture = TestBed.createComponent(AppComponent);
   //   const app = fixture.debugElement.componentInstance;
