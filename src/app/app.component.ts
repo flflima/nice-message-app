@@ -8,11 +8,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent {
   messagingForm: FormGroup;
-  name = '';
 
   constructor() {
     this.messagingForm = new FormGroup({
-      'name': new FormControl(name, [
+      name: new FormControl('', [
         Validators.required,
         Validators.minLength(5)
       ])

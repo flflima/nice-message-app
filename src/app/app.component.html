@@ -4,6 +4,9 @@
             <input class="form-control" id="name-input" formControlName="name">
         </label>
     </div>
+    <div>
+        <label id="message" for="message">{{ messagingForm.get('name').value }}</label>
+    </div>
 </form>
 
 <router-outlet></router-outlet>
