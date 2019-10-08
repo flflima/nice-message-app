@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "dev": "ng lint && ng test --watch=false && ng build --configuration=dev --base-href=.",
+    "prod": "ng lint && ng test --watch=false && ng build --prod --base-href=.",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

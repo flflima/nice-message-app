@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 export class MessagesServiceService {
 
   readonly messages = [
-    ""
-  ]
+    ''
+  ];
 
-  constructor() { 
-    this.messages = ["1"]
+  constructor() {
+    this.messages = ['1'];
   }
 }
