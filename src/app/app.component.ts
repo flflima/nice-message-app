@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MessagesService } from 'src/services/messages/messages.service';
 
 @Component({
   selector: 'app-root',
@@ -10,16 +11,19 @@ export class AppComponent {
   messagingForm: FormGroup;
   outputMessage = '';
 
-  constructor() {
+  readonly messagesService: MessagesService;
+
+  constructor(messagesService: MessagesService) {
     this.messagingForm = new FormGroup({
       name: new FormControl('', [
         Validators.required,
         Validators.minLength(3)
       ])
     });
+    this.messagesService = messagesService;
   }
 
   onSubmit(): void {
-    this.outputMessage = `Olá ${this.messagingForm.get('name').value}!`
+    this.outputMessage = this.messagesService.buildMessage(this.messagingForm.get('name').value);
   }
 }
