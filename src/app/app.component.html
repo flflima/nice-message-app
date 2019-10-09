@@ -3,10 +3,10 @@
         <label id="name" for="name-input">Informe o seu nome:
             <input class="form-control" id="name-input" formControlName="name">
         </label>
-        <button type="submit" class="btn btn-success">Enviar</button>
+        <button type="submit" class="btn btn-success" [disabled]="messagingForm.invalid">Enviar</button>
     </div>
     <div>
-        <label id="message" for="message">{{ messagingForm.get('name').value }}</label>
+        <label id="message" for="message">{{ outputMessage }}</label>
     </div>
 </form>
 

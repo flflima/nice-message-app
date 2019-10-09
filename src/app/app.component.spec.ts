@@ -36,16 +36,45 @@ describe('AppComponent', () => {
   //   expect(app.name).toEqual('');
   // });
 
-  it(`should have a label that contains 'Jose' as text when input is filled`, async() => {
+  it(`should have a disabled button while form is invalid`, async() => {
     const fixture = TestBed.createComponent(AppComponent);
     await fixture.whenStable();
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement.querySelector('#name-input');
-    compiled.value = 'Jose';
-    compiled.dispatchEvent(new Event('input'));
+
+    fixture.debugElement.nativeElement.querySelector('#name-input').value = 'X';
+    fixture.debugElement.nativeElement.querySelector('#name-input').dispatchEvent(new Event('input'));
 
     fixture.detectChanges();
-    expect(fixture.debugElement.nativeElement.querySelector('#message').textContent).toContain('Jose');
+
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('button').disabled).toBeTruthy();
+
+  });
+
+  it(`should have an enabled button when form is valid`, async() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    compiled.querySelector('#name-input').value = 'Jose';
+    compiled.querySelector('#name-input').dispatchEvent(new Event('input'));
+
+    fixture.detectChanges();
+    expect(compiled.querySelector('button').disabled).toBeFalsy();
+  });
+
+  it(`should have an output message that contains 'Jose' as text when submit button is clicked`, async() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    await fixture.whenStable();
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    compiled.querySelector('#name-input').value = 'Jose';
+    compiled.querySelector('#name-input').dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    compiled.querySelector('button').click();
+    fixture.detectChanges();
+
+    expect(compiled.querySelector('#message').textContent).toContain('Jose');
   });
 
   // it(`should have as title 'nice-messages-app'`, () => {

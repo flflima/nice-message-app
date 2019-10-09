@@ -8,17 +8,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent {
   messagingForm: FormGroup;
+  outputMessage = '';
 
   constructor() {
     this.messagingForm = new FormGroup({
       name: new FormControl('', [
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(3)
       ])
     });
   }
 
   onSubmit(): void {
-    console.log('teste');
+    this.outputMessage = `Olá ${this.messagingForm.get('name').value}!`
   }
 }
