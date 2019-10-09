@@ -32,6 +32,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Run `npm run prod` to generate the deployable package inside `dist` folder.
 
-Run `docker-compose up -d`to start the tomcat container.
+Run `docker-compose up -d` to start the tomcat container.
 
 Open a browser and access [http://localhost:8080/nice-messages-app/](http://localhost:8080/nice-messages-app/).

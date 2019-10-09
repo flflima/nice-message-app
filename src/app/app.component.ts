@@ -17,4 +17,8 @@ export class AppComponent {
       ])
     });
   }
+
+  onSubmit(): void {
+    console.log('teste');
+  }
 }

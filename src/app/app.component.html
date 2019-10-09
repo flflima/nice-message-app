@@ -1,8 +1,9 @@
-<form id="messaging-form" [formGroup]="messagingForm" novalidate>
+<form id="messaging-form" [formGroup]="messagingForm" (ngSubmit)="onSubmit()" novalidate>
     <div>
-        <label id="name" for="name-input">Informe o seu nome: 
+        <label id="name" for="name-input">Informe o seu nome:
             <input class="form-control" id="name-input" formControlName="name">
         </label>
+        <button type="submit" class="btn btn-success">Enviar</button>
     </div>
     <div>
         <label id="message" for="message">{{ messagingForm.get('name').value }}</label>
